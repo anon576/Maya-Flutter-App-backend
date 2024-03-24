@@ -21,6 +21,15 @@ class User(db.Model):
     partner = db.Column(db.String)
     cycleRange = db.Column(db.Integer)
     periodRange = db.Column(db.Integer)
+    cycleRegular = db.Column(db.String)
+    discomfort = db.Column(db.String)
+    disorder = db.Column(db.String)
+    sleep = db.Column(db.String)
+    periodStartDate = db.Column(db.String)
+    periodEndDate=db.Column(db.String)
+    cycleStartDate = db.Column(db.String)
+    cycleEndDate=db.Column(db.String)
+    
     
     
 
@@ -67,6 +76,8 @@ class Days(db.Model):
     description = db.Column(db.String)
     cycleUpdate1 = db.Column(db.String,nullable = False)
     cycleUpdate2 = db.Column(db.String,nullable = False)
+    ovdays = db.Column(db.String)
+    nextPeriods = db.Column(db.String)
 
 
 class Notes(db.Model):
@@ -83,6 +94,14 @@ class Symptons(db.Model):
     uid = db.Column(db.Integer, db.ForeignKey('User.uid'), nullable=False)
     date = db.Column(db.String)
     symptons = db.Column(db.String)
+
+
+class Sleep(db.Model):
+    __tablename__ = "Sleep"
+    nID = db.Column(db.Integer,autoincrement=True,nullable=False,primary_key=True)
+    uid = db.Column(db.Integer, db.ForeignKey('User.uid'), nullable=False)
+    date = db.Column(db.String)
+    sleep = db.Column(db.String)
 
 
 
